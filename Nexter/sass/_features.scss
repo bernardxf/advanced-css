@@ -2,19 +2,24 @@
   grid-column: center-start / center-end;
   margin: 15rem 0;
 
-  align-items: start;
-  display: grid;
-  grid-gap: 6rem;
-  // grid-template-columns: repeat(3, 1fr);
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  @supports(display: grid) {
+      align-items: start;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+      grid-gap: 6rem;
+  }
 
 }
 
 .feature {
-  display: grid;
-  grid-column-gap: 2.5rem;
-  grid-row-gap: 1.5rem;
-  grid-template-columns: min-content 1fr;
+  float: left;
+  margin-bottom: 6rem;
+  width: 33.3333%;
+
+  @supports(display: grid) {
+    margin-bottom: 0;
+    width: auto;
+  }
 
   &__icon {
     fill: $color-primary;
